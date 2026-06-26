@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html class="h-full" lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>SIMAK MODUL</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=Poppins:wght@600;700;900&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1c1b1b",
+                      "on-primary-container": "#858383",
+                      "tertiary-fixed": "#e2e2e2",
+                      "secondary-fixed": "#e5e2de",
+                      "inverse-surface": "#2f3131",
+                      "on-background": "#1a1c1c",
+                      "tertiary-container": "#1a1c1c",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#eeeeee",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#c8c6c5",
+                      "surface-container-lowest": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f0f1f1",
+                      "surface-container-high": "#e8e8e8",
+                      "surface": "#f9f9f9",
+                      "surface-tint": "#5f5e5e",
+                      "primary-fixed": "#e5e2e1",
+                      "error": "#ba1a1a",
+                      "on-surface": "#1a1c1c",
+                      "on-tertiary-container": "#838484",
+                      "surface-dim": "#dadada",
+                      "outline-variant": "#c4c7c7",
+                      "secondary-fixed-dim": "#c8c6c2",
+                      "on-secondary-fixed": "#1c1c1a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f3f3f4",
+                      "on-primary-fixed-variant": "#474646",
+                      "primary-fixed-dim": "#c8c6c5",
+                      "tertiary": "#000000",
+                      "primary": "#000000",
+                      "surface-bright": "#f9f9f9",
+                      "on-surface-variant": "#444748",
+                      "on-secondary-container": "#636260",
+                      "secondary": "#5f5e5b",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#c6c6c6",
+                      "surface-variant": "#e2e2e2",
+                      "secondary-container": "#e2dfdb",
+                      "on-primary-fixed": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#454747",
+                      "background": "#F8F5F1",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-secondary-fixed-variant": "#474744",
+                      "on-tertiary-fixed": "#1a1c1c",
+                      "on-error-container": "#93000a",
+                      "outline": "#747878",
+                      "cream": "#F8F5F1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "2xl": "1.25rem",
+                      "full": "9999px",
+                      "button": "16px",
+                      "card": "20px",
+                      "pill": "100px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "max-width": "1280px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Poppins"],
+                      "label-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-xl": ["Poppins"],
+                      "headline-lg": ["Poppins"],
+                      "headline-md": ["Poppins"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-md": ["14px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              },
+              "boxShadow": {
+                    "soft-sm": "0px 2px 4px rgba(0,0,0,0.04)",
+                    "soft-float": "0px 8px 16px rgba(0,0,0,0.06)",
+                    "card-sm": "0px 2px 4px rgba(0,0,0,0.04)",
+                    "card-float": "0px 8px 16px rgba(0,0,0,0.06)"
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F8F5F1;
+            color: #1a1c1c;
+        }
+        .card-shadow {
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.04);
+        }
+        .card-shadow-hover:hover {
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 200ms;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F5F1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2e2e2; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c4c7c7; 
+        }
+        
+        /* Educational Emoji Background Animation */
+        .emoji-rain {
+            position: fixed;
+            top: -50px;
+            z-index: 0;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .emoji-rain {
+                display: none !important;
+                animation: none !important;
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #ai-floating-widget {
+            position: fixed;
+            z-index: 9999;
+        }
+
+        /* Play Page Animations */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        @keyframes shimmer { 100% { transform: translateX(100%); } }
+        
+        .game-container { font-family: 'Fredoka', sans-serif; color: #1e293b; }
+        @keyframes twitch-bounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            5% { transform: scale(1.1, 0.9) rotate(-3deg); }
+            10% { transform: scale(0.9, 1.1) rotate(3deg); }
+            15% { transform: scale(1.05, 0.95) rotate(-1deg); }
+            20% { transform: scale(1) rotate(0deg); }
+        }
+        .title-twitch { display: inline-block; animation: twitch-bounce 3s infinite ease-in-out; transform-origin: center; }
+        
+        .floating-element { position: absolute; pointer-events: none; z-index: 0; animation: float-across linear infinite; filter: drop-shadow(3px 3px 0px rgba(15, 23, 42, 0.15)); }
+        @keyframes float-across { 0% { transform: translateX(-15vw) rotate(-10deg); } 50% { transform: translateX(50vw) rotate(10deg) translateY(-20px); } 100% { transform: translateX(110vw) rotate(-10deg); } }
+        .el-1 { top: 15%; animation-duration: 18s; font-size: 3rem; opacity: 0.8; }
+        .el-2 { top: 75%; animation-duration: 25s; animation-delay: -5s; font-size: 2.5rem; opacity: 0.7; }
+        .el-3 { top: 40%; animation-duration: 22s; animation-delay: -12s; font-size: 2rem; opacity: 0.5; }
+        .el-4 { top: 85%; animation-duration: 15s; animation-delay: -8s; font-size: 3.5rem; opacity: 0.9; }
+        
+        .card-cartoon { background-color: #ffffff; border: 3px solid #0f172a; border-radius: 20px; box-shadow: 6px 6px 0px #0f172a; position: relative; }
+        .btn-cartoon { display: inline-flex; align-items: center; justify-content: center; background-color: #fde047; border: 3px solid #0f172a; border-radius: 12px; box-shadow: 4px 4px 0px #0f172a; transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1); font-weight: 700; cursor: pointer; pointer-events: auto !important; }
+        .btn-cartoon:hover { transform: translateY(-2px); box-shadow: 4px 6px 0px #0f172a; }
+        .btn-cartoon:active { transform: translate(2px, 4px); box-shadow: 0px 0px 0px #0f172a; }
+        
+        .edu-box { width: 80px; height: 80px; border: 3px solid; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 3rem; font-weight: 900; cursor: pointer; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); margin: 0 auto; position: relative; overflow: hidden; }
+        @media (min-width: 768px) { .edu-box { width: 120px; height: 120px; font-size: 4.5rem; border-width: 4px; border-radius: 20px; } }
+        .box-black { background-color: #111111; color: #ffffff; border-color: #ffffff; box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.4); }
+        .box-black:hover:not(.opened):not(.locked) { transform: translateY(-5px) scale(1.05); box-shadow: 0 0 25px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 255, 255, 0.8); }
+        .box-white { background-color: #ffffff; color: #111111; border-color: #111111; box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(0, 0, 0, 0.2); }
+        .box-white:hover:not(.opened):not(.locked) { transform: translateY(-5px) scale(1.05); box-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 45px rgba(0, 0, 0, 0.4); }
+        .box-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #22c55e !important; box-shadow: inset 0 0 10px rgba(34,197,94,0.2) !important; cursor: default; }
+        .box-wrong { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #ef4444 !important; box-shadow: inset 0 0 10px rgba(239,68,68,0.2) !important; cursor: default; }
+        .box-locked { background-color: #e2e8f0 !important; border-color: #64748b !important; color: #64748b !important; box-shadow: none !important; cursor: not-allowed; opacity: 0.8; }
+        .edu-box.opened, .edu-box.locked { transform: none !important; }
+        
+        @keyframes bounce-in { 0% { transform: scale(0.8); opacity: 0; } 50% { transform: scale(1.05); opacity: 1; } 100% { transform: scale(1); opacity: 1; } }
+        .animate-bounce-in { animation: bounce-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .modal-overlay { background-color: rgba(15,23,42,0.85); backdrop-filter: blur(4px); pointer-events: auto !important; z-index: 10000; }
+        .quiz-opt { display: block; width: 100%; padding: 15px; margin-bottom: 12px; background: #f8fafc; border: 4px solid #94a3b8; border-radius: 16px; font-size: 1.1rem; cursor: pointer; text-align: left; transition: all 0.2s; font-family: 'Fredoka', sans-serif; font-weight: 800; color: #334155; pointer-events: auto !important; }
+        .quiz-opt:hover { background: #e2e8f0; border-color: #64748b; transform: translateX(5px); }
+        
+        .panic-vignette { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; box-shadow: inset 0 0 40px rgba(239,68,68,0); transition: box-shadow 0.2s ease-in-out; }
+        .panic-active { animation: pulse-vignette 0.5s infinite; }
+        @keyframes pulse-vignette { 0%, 100% { box-shadow: inset 0 0 50px rgba(239,68,68,0.85), inset 0 0 20px rgba(239,68,68,0.5); } 50% { box-shadow: inset 0 0 90px rgba(239,68,68,1), inset 0 0 40px rgba(239,68,68,0.8); } }
+        
+        .grid-boxes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 450px; margin: 0 auto; }
+        @media (max-width: 768px) { .grid-boxes { grid-template-columns: repeat(3, 1fr); gap: 1rem; } }
+        
+        .scoreboard { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 20px; }
+        .score-badge { border: 3px solid #0f172a; border-radius: 12px; padding: 10px 20px; font-weight: bold; box-shadow: 4px 4px 0px #0f172a; display: flex; flex-direction: column; align-items: center; min-width: 100px; background-color: #ffffff; }
+        .score-badge.correct { border-color: #22c55e; }
+        .score-badge.wrong { border-color: #ef4444; }
+        
+        .timer-container { width: 100%; height: 12px; background: #e2e8f0; border-radius: 6px; overflow: hidden; border: 2px solid #0f172a; margin-bottom: 20px; }
+        .timer-bar { height: 100%; background: #3b82f6; transition: width 1s linear, background-color 0.3s; }
+        .timer-bar.warning { background: #eab308; }
+        .timer-bar.danger { background: #ef4444; }
+    </style>
+</head>
+<body class="text-on-surface font-body-md min-h-screen w-full antialiased relative overflow-x-hidden">
+
+    <!-- Background Emoji Container -->
+    <div aria-hidden="true" class="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30" id="emoji-container"></div>
+    
+    <!-- View 1: Welcome Page -->
+    <div id="welcome-view" class="w-full min-h-screen flex flex-col items-center justify-center relative z-10 transition-opacity duration-300">
+        <!-- Decorative ambient background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-white opacity-40 blur-3xl"></div>
+            <div class="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-white opacity-30 blur-3xl"></div>
+        </div>
+        
+        <main class="w-full max-w-[1280px] px-margin-mobile md:px-margin-desktop flex flex-col items-center justify-center text-center z-10">
+            <div class="mb-12 relative">
+                <div class="w-32 h-32 rounded-3xl bg-white border border-outline-variant/30 flex items-center justify-center shadow-[0px_8px_24px_rgba(0,0,0,0.04)] rotate-3 transition-transform hover:rotate-0 duration-300">
+                    <span class="material-symbols-outlined text-[64px] text-primary" style="font-variation-settings: 'FILL' 1;">
+                        library_books
+                    </span>
+                </div>
+                <div class="absolute -top-4 -right-6 w-12 h-12 bg-white rounded-full border border-outline-variant/20 flex items-center justify-center shadow-sm -rotate-12 animate-pulse">
+                    <span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">
+                        star
+                    </span>
+                </div>
+            </div>
+            
+            <div class="max-w-2xl mx-auto space-y-6">
+                <h1 class="font-headline-xl text-headline-xl text-primary tracking-tight">
+                    SIMAK MODUL
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto leading-relaxed">
+                    Belajar lebih mudah, ringkas, dan interaktif. Belajar modul kini lebih mudah dengan ringkasan materi dan pembelajaran interaktif.
+                </p>
+            </div>
+            
+            <div class="mt-16">
+                <button onclick="switchView('home-view')" class="group relative px-12 py-5 bg-primary text-on-primary font-label-md text-label-md rounded-[16px] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 overflow-hidden shadow-[0px_8px_16px_rgba(0,0,0,0.08)] hover:bg-[#222222]">
+                    <span class="relative z-10 flex items-center gap-2 tracking-wider">
+                        START
+                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-200">
+                            arrow_forward
+                        </span>
+                    </span>
+                </button>
+            </div>
+            
+            <div class="mt-24 flex flex-wrap justify-center gap-4 opacity-70">
+                <div class="px-4 py-2 bg-white rounded-full border border-outline-variant/30 flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">summarize</span>
+                    <span class="font-label-sm text-label-sm">Ringkasan Cepat</span>
+                </div>
+                <div class="px-4 py-2 bg-white rounded-full border border-outline-variant/30 flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">sports_esports</span>
+                    <span class="font-label-sm text-label-sm">Belajar Interaktif</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- App Layout (Shared for Home, Modules, Summary) -->
+    <div id="app-layout" class="hidden min-h-screen w-full flex flex-col md:flex-row relative z-10 transition-opacity duration-300">
+        
+        <!-- SideNavBar (Desktop) -->
+        <nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface dark:bg-surface-container border-r border-outline-variant p-6 gap-y-4 z-40">
+            <div class="mb-8">
+                <h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">SIMAK MODUL</h1>
+                <p class="font-label-sm text-label-sm text-secondary">Learning Hub</p>
+            </div>
+            <div class="flex-1 flex flex-col gap-y-2">
+                <button onclick="switchView('home-view')" data-target="home-view" class="nav-item-desktop w-full flex items-center gap-x-3 px-4 py-3 bg-primary text-on-primary rounded-xl font-bold shadow-soft-float transition-all duration-200 group text-left">
+                    <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+                    <span class="font-label-md text-label-md">Home</span>
+                </button>
+                <button onclick="switchView('modules-view')" data-target="modules-view" class="nav-item-desktop w-full flex items-center gap-x-3 px-4 py-3 text-secondary hover:bg-surface-container-high rounded-xl transition-colors duration-200 group text-left">
+                    <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">library_books</span>
+                    <span class="font-label-md text-label-md">Modules</span>
+                </button>
+                <button onclick="switchView('summary-view')" data-target="summary-view" class="nav-item-desktop w-full flex items-center gap-x-3 px-4 py-3 text-secondary hover:bg-surface-container-high rounded-xl transition-colors duration-200 group text-left">
+                    <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">description</span>
+                    <span class="font-label-md text-label-md">Summary</span>
+                </button>
+                <button onclick="switchView('play-view')" data-target="play-view" class="nav-item-desktop w-full flex items-center gap-x-3 px-4 py-3 text-secondary hover:bg-surface-container-high rounded-xl transition-colors duration-200 group text-left">
+                    <span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 0;">sports_esports</span>
+                    <span class="font-label-md text-label-md">Play</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- TopNavBar (Mobile) -->
+        <header class="md:hidden flex justify-between items-center w-full px-margin-mobile py-4 bg-surface dark:bg-surface-container-highest border-b border-outline-variant fixed top-0 z-40">
+            <h1 class="text-headline-md font-headline-lg font-black text-primary">SIMAK MODUL</h1>
+            <div class="flex gap-x-4 text-primary">
+                <button class="hover:opacity-80 transition-opacity"><span class="material-symbols-outlined">notifications</span></button>
+                <button class="hover:opacity-80 transition-opacity"><span class="material-symbols-outlined">account_circle</span></button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 md:ml-64 pt-16 md:pt-0 pb-20 md:pb-0 relative w-full flex flex-col min-h-screen">
+            
+            <!-- View 2: Home Page -->
+            <div id="home-view" class="flex-1 flex justify-center items-center w-full px-margin-mobile md:px-8 py-10 transition-opacity duration-300">
+                <div class="w-full max-w-[1000px] flex flex-col gap-12 my-auto relative z-10">
+                    <section class="text-center flex flex-col items-center mt-8">
+                        <div class="flex items-center justify-center gap-3 mb-2">
+                            <h2 class="font-headline-xl text-headline-lg md:text-headline-xl text-primary">Halo</h2>
+                            <span class="text-4xl md:text-5xl">👋</span>
+                        </div>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant">Mau belajar apa hari ini?</p>
+                    </section>
+
+                    <section>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Card 1 -->
+                            <div class="bg-[#FFFFFF] border border-[#EAEAEA] rounded-[20px] p-8 card-shadow card-shadow-hover transition-all flex flex-col items-center text-center h-full group cursor-pointer" onclick="switchView('modules-view')">
+                                <div class="w-32 h-32 mb-6 transition-transform group-hover:-translate-y-2 duration-300">
+                                    <img alt="Daftar Modul" class="w-full h-full object-contain drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJTzSMaKVfuASuC5T4Ke0cXsbXSwluPb54-fz9jnMq2o7DKjvD2kut7wOhJ4cQX4DaPD-6SwMF9diaBcVCO4JVBSSHMVJXngH9um78HeK1MuE_3580hNSLXRhgSYTPuM64iSdQYQBNqyQl-UdF_0qm_dKKmIL9i_xaRpfHkTh5Se9B_4Afz9FWKI2Q8qzTnwNka5ohFhj231OiEZW4-QhumbfTHurQZ3djqaFbOlsS_v66laPQ2cGx9y_LwojMwJwAwAmp4WGWW9M">
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-3">Daftar Modul</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Jelajahi berbagai modul pembelajaran yang tersedia untukmu.</p>
+                                <button class="w-full bg-[#111111] text-[#FFFFFF] font-label-md text-label-md rounded-[16px] py-4 hover:bg-[#333] hover:scale-[1.02] transition-all">
+                                    Mulai
+                                </button>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div class="bg-[#FFFFFF] border border-[#EAEAEA] rounded-[20px] p-8 card-shadow card-shadow-hover transition-all flex flex-col items-center text-center h-full group cursor-pointer" onclick="switchView('summary-view')">
+                                <div class="w-32 h-32 mb-6 transition-transform group-hover:-translate-y-2 duration-300">
+                                    <img alt="Ringkasan Cepat" class="w-full h-full object-contain drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlurFxqGsiKFueA8-Rgzwk0dl9Dz6cIxMoJcp2vd6eac5XHEXjd3ThmMPh4mSu4WWuxfPJBepmSoSv5mVLVBT0XOTDZIYA33K9wXAzrL9Bzbi03j1a2k1ZBhwVealZk4j3-U7K7OaHuLvyg8eJwX53Gb-vGeSBfb9e8qRmmN_81UaS6KTCmEf56QTBYEDplHyByUwLtckWxN0kdIaAMqbyaqpZgTvRzvOb5UouwUiNJb1IPV1gbzSgD0Uzg3XNtC9S_o95RbyduAs">
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-3">Ringkasan Cepat</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Pelajari inti materi dengan cepat dan mudah dipahami.</p>
+                                <button class="w-full bg-[#111111] text-[#FFFFFF] font-label-md text-label-md rounded-[16px] py-4 hover:bg-[#333] hover:scale-[1.02] transition-all">
+                                    Mulai
+                                </button>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="bg-[#FFFFFF] border border-[#EAEAEA] rounded-[20px] p-8 card-shadow card-shadow-hover transition-all flex flex-col items-center text-center h-full group cursor-pointer" onclick="switchView('play-view')">
+                                <div class="w-32 h-32 mb-6 transition-transform group-hover:-translate-y-2 duration-300">
+                                    <img alt="Main Modul" class="w-full h-full object-contain drop-shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy2xR5wHUyc1iCEccn0LFqQBRRdBjQMUaW9-KgUy_XZMkJSVKBSV9ZhYwJoGuHXmfPgg64GIltoudsDCkM_I-2prPcTMijl-G9M5nH5ACZaa_DH6yzYT1SLxqBR-DIEwIorOmDQHEMOZNWxWFTlMzwo_H9mC8cNz1WgB4EubzlYKckWvqGySDbdCJFYve_pZK6Ecp7cMUKxHTx3GLsGtCRqKKXiw-7UJb9TDn2xx24cu0hdF4TuD_fg2fh08miCdx_SJYo_0gU3mE">
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary mb-3">Main Modul</h3>
+                                <p class="font-body-md text-body-md text-on-surface-variant mb-8 flex-grow">Uji pemahamanmu sambil bermain kuis yang interaktif.</p>
+                                <button class="w-full bg-[#111111] text-[#FFFFFF] font-label-md text-label-md rounded-[16px] py-4 hover:bg-[#333] hover:scale-[1.02] transition-all">
+                                    Mulai
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- View 3: Modules Page -->
+            <div id="modules-view" class="hidden flex-1 w-full p-margin-mobile md:p-margin-desktop lg:px-gutter max-w-max-width mx-auto pt-8 transition-opacity duration-300">
+                <div class="mb-12">
+                    <h2 class="font-headline-xl text-headline-xl text-primary mb-4">Daftar Modul</h2>
+                    <p class="font-body-lg text-body-lg text-secondary max-w-2xl">Pilih modul pembelajaranmu hari ini. Mulai dari pemahaman dasar hingga keterampilan praktis untuk masa depan.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <!-- INI GENTING -->
+                    <div class="bg-surface-container-lowest rounded-card border border-outline-variant p-8 shadow-card-float relative overflow-hidden flex flex-col min-h-[400px] cursor-pointer hover:scale-[1.02] transition-transform" onclick="window.open('https://drive.google.com/drive/folders/1I2RCledo-t0QI2n10kNcaoouJsyXk1rW?usp=drive_link', '_blank')">
+                        <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
+                            <img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA3d4Sz17NdbNPeXjwzz6pX6IeUw-rVj6ja6Xl0N4D4Wg_0QxmFAurHYyNoE2OGQjetf49SL5wtdLgV6Zj9m1SyZ5Bk1KuLjMQQtwfhRGCJ76PT39O2uex4Q0iucuY4tjjOIGBvfeEPewEO6aGppb8KxjlcMWfSYsRkZWmzx0xJoHxLFI-6PJgNMOulPtUIETChWOC8nRW4B5BFOHhnVZOu33l63v3TsmRguNVVa8zX0riuxlgtmwI1evLPPdz4-Pwlj5IqHxE_oI">
+                        </div>
+                        <div class="flex items-center justify-between mb-6 z-10">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-secondary-container px-3 py-1 rounded-pill font-label-sm text-label-sm text-on-surface">Modul 1</span>
+                            </div>
+                        </div>
+                        <div class="z-10 mb-8 mt-auto">
+                            <h3 class="font-headline-xl text-primary mb-4 text-3xl md:text-4xl">INI GENTING</h3>
+                            <p class="font-body-lg text-secondary text-sm md:text-base">Pahami situasi krisis dan cara mengatasinya dengan cepat.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TENTANG KITA -->
+                    <div class="bg-surface-container-lowest rounded-card border border-outline-variant p-8 shadow-card-float relative overflow-hidden flex flex-col min-h-[400px] cursor-pointer hover:scale-[1.02] transition-transform" onclick="document.getElementById('tentang-kita-materials').classList.toggle('hidden')">
+                        <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
+                            <img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgBrdl_sdPspUQgeXixQYLsbsgltgLGyJoCRaLNf7Jn_VDEfACLW5-IjRZFS1-IpbFLzmJMYKO5zEs6FUJxs0sffQG51xBCoRoqXAFBK2cB_0tG5n8H6XVbPhD0tJQnntm5y9q4zGlhFQGKScxuIReWdXjqjJzU9YgETRQG0aH1Z64THHyuKcTdt7q0nIjl4dqPRfOhNtSyffgi96EUC9XtBTyE6UenuMBNxri93THWf5cSgGJCpGuHEKw_vOGFvtUY21rU3Yevjg">
+                        </div>
+                        <div class="flex items-center justify-between mb-6 z-10">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-primary px-3 py-1 rounded-pill font-label-sm text-label-sm text-on-primary">Sedang Dipelajari</span>
+                                <span class="bg-secondary-container px-3 py-1 rounded-pill font-label-sm text-label-sm text-on-surface">Modul 2</span>
+                            </div>
+                        </div>
+                        <div class="z-10 mb-8 mt-auto">
+                            <h3 class="font-headline-xl text-primary mb-4 text-3xl md:text-4xl">TENTANG KITA</h3>
+                            <p class="font-body-lg text-secondary text-sm md:text-base">Mengenal lebih dalam tentang interaksi sosial, membangun relasi, dan bekerja sama.</p>
+                        </div>
+                        <!-- Sub-materials -->
+                        <div class="z-10 mt-2 transition-all duration-300">
+                            <div class="mb-4 hidden" id="tentang-kita-materials">
+                                <h4 class="font-label-md text-label-md text-primary mb-4 opacity-50 uppercase tracking-wider">Materi Modul</h4>
+                                <div class="grid grid-cols-1 gap-2">
+                                    <a class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl hover:bg-surface-variant transition-colors group" href="https://drive.google.com/file/d/1Hw1bejf4Yarg0k5h7mvoMrxZPIYIX15q/view?usp=drive_link" target="_blank">
+                                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">directions_run</span><span class="font-label-md text-on-surface">BERAKSI</span></div>
+                                        <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+                                    </a>
+                                    <a class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl hover:bg-surface-variant transition-colors group" href="https://drive.google.com/file/d/1Hz0GzaWegLpeHpV6vqXjiymYv-Zor6Tm/view?usp=drive_link" target="_blank">
+                                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">local_fire_department</span><span class="font-label-md text-on-surface">BERANI</span></div>
+                                        <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+                                    </a>
+                                    <a class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl hover:bg-surface-variant transition-colors group" href="https://drive.google.com/file/d/1Hu14K0RDZ0sLoRo3xlWHtvQMe-6CxwGq/view?usp=drive_link" target="_blank">
+                                        <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary">group</span><span class="font-label-md text-on-surface">BERKOLABORASI</span></div>
+                                        <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">chevron_right</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LIFE SKILL -->
+                    <div class="bg-surface-container-lowest rounded-card border border-outline-variant p-8 shadow-card-float relative overflow-hidden flex flex-col min-h-[400px] cursor-pointer hover:scale-[1.02] transition-transform" onclick="window.open('https://drive.google.com/drive/folders/1IMIo7pQoQZwwqNFHCB1MyRCBuZdPo4dj?usp=drive_link', '_blank')">
+                        <div class="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
+                            <img alt="" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhv6ZxfXSfyCRgOVRLIas56SmRy_L74FOdosm8vQsRdpEABgS2SPnyQpNGbwvwfJStwFM3H0IZJBcnT7lhIAsnBgbEOoQvP4YK2SODYC2beHk-A8QnBRgKdGMvHBIUHb068EF7qas6D6TW0YsBXnfHff_xKtJXWzdCzhrag2X0yb2wpKJL8G0kFMfb_fVG6dIWKaPwprCO9P5a1hEL82ZoOf7wIurtZXwo8fg4WqYsRMdRBMj09iXFnslprUUb1gson03WnjF6Omg">
+                        </div>
+                        <div class="flex items-center justify-between mb-6 z-10">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-secondary-container px-3 py-1 rounded-pill font-label-sm text-label-sm text-on-surface">Modul 3</span>
+                            </div>
+                        </div>
+                        <div class="z-10 mb-8 mt-auto">
+                            <h3 class="font-headline-xl text-primary mb-4 text-3xl md:text-4xl">LIFE SKILL</h3>
+                            <p class="font-body-lg text-secondary text-sm md:text-base">Keterampilan praktis harian untuk mendukung kemandirianmu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 4: Summary Page -->
+            <div id="summary-view" class="hidden flex-1 w-full p-margin-mobile md:p-margin-desktop max-w-[1280px] mx-auto py-10 transition-opacity duration-300">
+                <div class="max-w-[800px] mx-auto flex flex-col gap-y-12">
+                    <!-- Header Section -->
+                    <div class="text-center md:text-left flex flex-col md:flex-row items-center md:items-start gap-6">
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 animate-pulse">
+                            <img alt="Lightning Bolt Accent" class="w-full h-full object-contain filter drop-shadow-soft-float" src="https://lh3.googleusercontent.com/aida/AP1WRLtWaDpiQULtngvWhx0mR0JpHDdlxGJQ9fYDW14iXNMg7xxMX8DIHn872_2qtYf2fAfXT5yQPDXWp7WScu7jykl3tEyFt_39FvgEPktZKYK7ko8v0UCZ4OcseA7ryNNXlCCxCSWg14sgbGgfI0zH_5GJDs_V3FCQ2h6fDZvhM88vLmZTQpZrW1R9tD9icEo9wdZwEWaRndoLiYC7jaTA_jQJHGNTalyemJ3Dn-MKEU-Xvl9RBPaxjeytAlQ">
+                        </div>
+                        <div class="flex flex-col gap-y-2 mt-2 md:mt-4">
+                            <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary tracking-tight">Ringkasan Cepat</h2>
+                            <p class="font-body-md text-body-md text-secondary max-w-lg">
+                                Pilih modul di bawah ini untuk mendapatkan ringkasan materi secara instan. Hemat waktu, belajar lebih cerdas.
+                            </p>
+                            <div class="mt-2 inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-bold w-fit">
+                                <span class="material-symbols-outlined text-sm">info</span> Gunakan Bubble AI Assistant di pojok layar untuk bertanya langsung!
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Module Selection Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                        <label class="cursor-pointer group" onclick="startStandardSummary('ini_genting')">
+                            <input class="peer sr-only" name="module_selection" type="radio" value="ini_genting">
+                            <div class="bg-surface border border-outline-variant rounded-2xl p-6 shadow-soft-sm hover:border-primary hover:shadow-soft-float transition-all duration-200 group-hover:-translate-y-1 flex flex-col items-center text-center gap-y-4 h-full">
+                                <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+                                    <span class="material-symbols-outlined text-[28px]">warning</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary text-[20px]">INI GENTING</h3>
+                                <p class="font-body-md text-body-md text-secondary text-sm">Modul krisis & manajemen risiko dasar.</p>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group" onclick="startStandardSummary('tentang_kita')">
+                            <input class="peer sr-only" name="module_selection" type="radio" value="tentang_kita">
+                            <div class="bg-surface border border-outline-variant rounded-2xl p-6 shadow-soft-sm hover:border-primary hover:shadow-soft-float transition-all duration-200 group-hover:-translate-y-1 flex flex-col items-center text-center gap-y-4 h-full">
+                                <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+                                    <span class="material-symbols-outlined text-[28px]">group</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary text-[20px]">TENTANG KITA</h3>
+                                <p class="font-body-md text-body-md text-secondary text-sm">Kolaborasi tim dan dinamika sosial.</p>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group" onclick="startStandardSummary('life_skill')">
+                            <input class="peer sr-only" name="module_selection" type="radio" value="life_skill">
+                            <div class="bg-surface border border-outline-variant rounded-2xl p-6 shadow-soft-sm hover:border-primary hover:shadow-soft-float transition-all duration-200 group-hover:-translate-y-1 flex flex-col items-center text-center gap-y-4 h-full">
+                                <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-2">
+                                    <span class="material-symbols-outlined text-[28px]">psychology</span>
+                                </div>
+                                <h3 class="font-headline-md text-headline-md text-primary text-[20px]">LIFE SKILL</h3>
+                                <p class="font-body-md text-body-md text-secondary text-sm">Keterampilan praktis kehidupan sehari-hari.</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View 5: Play Page -->
+            <div id="play-view" class="hidden flex-1 w-full flex flex-col items-center justify-center relative p-4 md:p-8 pb-24 transition-opacity duration-300 overflow-hidden">
+                <!-- HERO SECTION -->
+                <div id="hero-section" class="w-full max-w-4xl mx-auto flex flex-col items-center text-center relative transition-opacity duration-500 z-10">
+                    <div class="relative w-64 h-64 md:w-96 md:h-96 mb-8 animate-float">
+                        <div class="absolute inset-0 bg-primary/5 rounded-full blur-3xl transform scale-150"></div>
+                        <img alt="MysteryBox 3D Icon" class="w-full h-full object-contain relative z-10 drop-shadow-2xl" src="https://lh3.googleusercontent.com/aida/AP1WRLtSc2KyLuN8GQdLEGmvOMONQ0I2Zpegr3AlC_hzZrOV4gBaJoPYd1SlIRN8fagAQ1PaW38402swpZyi3NW5CX3x0j1HlhiRbZkiSE6m665BjIEfWIAjEqWMsMpTHR8wflme7D0WPwEiZvK0WIY0vWKrejDHRuoLrtSkzgy-5qlg9I4fghHhRW3Mo5t_cq7fMu0CC1evUNfs8OnB08ruO2r_Q5XdbzSpVKxaS-XXwXXDgKygn1SwZrZrwQ">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-soft-sm animate-bounce delay-100 border border-outline-variant">
+                            <span class="material-symbols-outlined text-primary">star</span>
+                        </div>
+                        <div class="absolute bottom-12 -left-8 w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-soft-sm animate-bounce delay-300 border border-outline-variant rotate-12">
+                            <span class="material-symbols-outlined text-primary text-3xl">lightbulb</span>
+                        </div>
+                    </div>
+                    <div class="max-w-2xl mx-auto space-y-4 mb-12">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-outline-variant rounded-full text-label-sm font-label-sm mb-2 shadow-soft-sm">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                            Tantangan Tersedia!
+                        </div>
+                        <h2 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-primary tracking-tight">EduQuiz Modul</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">
+                            Uji pemahamanmu tentang modul dengan cara yang seru. Temukan kejutan di setiap kotak!
+                        </p>
+                    </div>
+                    <button onclick="enterGameMode()" class="group relative px-10 py-5 bg-primary text-white rounded-2xl font-headline-md text-headline-md overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-4">
+                        <span class="relative z-10">Masuk Game</span>
+                        <span class="material-symbols-outlined relative z-10 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                        <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                    </button>
+                </div>
+
+                <!-- GAME SECTION -->
+                <div id="game-section" class="game-container hidden w-full flex-grow flex flex-col justify-center relative">
+                    <div id="panic-screen" class="panic-vignette"></div>
+                    <div class="floating-element el-1">☁️</div>
+                    <div class="floating-element el-2">✨</div>
+                    <div class="floating-element el-3">📚</div>
+                    <div class="floating-element el-4">☁️</div>
+                    
+                    <div id="game-app" class="flex-grow w-full max-w-4xl mx-auto flex flex-col justify-center relative z-10 text-center">
+                        <!-- Dynamic Content Will Be Injected Here -->
+                    </div>
+                    
+                    <!-- Pop-up UI Kuis -->
+                    <div id="safe-quiz-overlay" class="modal-overlay fixed inset-0 hidden items-center justify-center p-4">
+                        <div class="card-cartoon w-full max-w-md p-6 bg-white text-center">
+                            <div class="timer-container mb-4">
+                                <div id="quiz-timer-bar" class="timer-bar" style="width: 100%;"></div>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <h2 class="text-3xl text-blue-500 font-black" style="-webkit-text-stroke: 1.5px #111827; color: white;">Kuis Evaluasi</h2>
+                                <span id="quiz-timer-text" class="text-xl font-bold text-slate-800">15s</span>
+                            </div>
+                            <p id="safe-quiz-question" class="text-lg mb-6 text-gray-800 font-bold leading-relaxed">Pertanyaan?</p>
+                            <div id="safe-quiz-options" class="flex flex-col gap-2"></div>
+                        </div>
+                    </div>
+                    <!-- Pop-up UI Status Instan (Benar/Salah) -->
+                    <div id="status-popup-overlay" class="modal-overlay fixed inset-0 hidden items-center justify-center p-4 z-[10001]">
+                        <div id="status-popup-card" class="card-cartoon w-full max-w-sm p-8 bg-white text-center transform scale-0 transition-transform duration-300">
+                            <div id="status-popup-icon" class="text-6xl mb-4">✔️</div>
+                            <h2 id="status-popup-title" class="text-4xl font-black text-stroke" style="-webkit-text-stroke: 1.5px #111827; color: white;">BENAR!</h2>
+                        </div>
+                    </div>
+                    <!-- Pop-up End Game Review -->
+                    <div id="review-overlay" class="modal-overlay fixed inset-0 hidden items-center justify-center p-4 z-[10002] overflow-y-auto pt-20 pb-20">
+                        <div class="card-cartoon w-full max-w-2xl p-6 md:p-8 bg-white text-left my-auto">
+                            <div class="text-center mb-8">
+                                <h2 class="text-4xl md:text-5xl font-black text-blue-500 title-twitch mb-2" style="-webkit-text-stroke: 2px #0f172a; color: white;">Review Kuis</h2>
+                                <p class="text-slate-600 font-bold text-lg">Kamu telah menyelesaikan semua tantangan!</p>
+                            </div>
+                            
+                            <div class="bg-slate-100 border-4 border-slate-900 rounded-2xl p-6 text-center mb-8 shadow-inner">
+                                <h3 class="text-xl font-bold text-slate-800 mb-2">Pemahaman Modul:</h3>
+                                <div id="review-percentage" class="text-5xl font-black text-slate-900">100%</div>
+                                <div id="review-predicate" class="text-lg font-bold text-green-600 mt-2">Sangat Paham!</div>
+                            </div>
+                            <div class="mb-8">
+                                <h3 class="text-xl font-black text-slate-900 mb-4 border-b-2 border-slate-200 pb-2">Rincian Jawaban:</h3>
+                                <div id="review-list" class="flex flex-col gap-3 max-h-60 overflow-y-auto pr-2">
+                                    <!-- List dinamis -->
+                                </div>
+                            </div>
+                            <button onclick="renderStartMenu()" class="btn-cartoon !bg-green-400 w-full py-4 text-xl tracking-widest uppercase hover:-translate-y-2 hover:shadow-[6px_8px_0px_#0f172a] active:translate-y-2 active:shadow-[0px_0px_0px_#0f172a]">
+                                Main Lagi ↻
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BottomNavBar (Mobile) -->
+        <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface dark:bg-surface-container-highest border-t border-outline-variant flex justify-around items-center h-16 pb-safe z-50">
+            <button onclick="switchView('home-view')" data-target="home-view" class="nav-item-mobile flex flex-col items-center justify-center w-full h-full text-primary font-bold transition-colors">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                <span class="text-[10px] font-label-sm mt-1 nav-text">Home</span>
+            </button>
+            <button onclick="switchView('modules-view')" data-target="modules-view" class="nav-item-mobile flex flex-col items-center justify-center w-full h-full text-secondary transition-colors">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">library_books</span>
+                <span class="text-[10px] font-label-sm mt-1 nav-text">Modules</span>
+            </button>
+            <button onclick="switchView('summary-view')" data-target="summary-view" class="nav-item-mobile flex flex-col items-center justify-center w-full h-full text-secondary transition-colors">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">description</span>
+                <span class="text-[10px] font-label-sm mt-1 nav-text">Summary</span>
+            </button>
+            <button onclick="switchView('play-view')" data-target="play-view" class="nav-item-mobile flex flex-col items-center justify-center w-full h-full text-secondary transition-colors">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">sports_esports</span>
+                <span class="text-[10px] font-label-sm mt-1 nav-text">Play</span>
+            </button>
+        </nav>
+        
+        <style>
+            .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+        </style>
+
+        <!-- FLOATING AI BUBBLE WIDGET (Appears everywhere in app layout) -->
+        <div id="ai-floating-widget" style="bottom: 80px; right: 24px;" class="flex flex-col items-end">
+            <!-- Expanded Panel -->
+            <div id="ai-panel" class="hidden mb-4 w-[320px] bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.15)] border border-outline-variant overflow-hidden flex-col origin-bottom-right transition-all">
+                <div class="bg-[#3b82f6] text-white p-3 flex justify-between items-center cursor-move" id="ai-drag-handle">
+                    <div class="flex items-center gap-2 pointer-events-none">
+                        <span class="material-symbols-outlined text-xl">auto_awesome</span>
+                        <span class="font-bold text-sm">AI Assistant</span>
+                    </div>
+                    <button onclick="toggleAIPanel()" class="hover:text-blue-200 transition-colors p-1"><span class="material-symbols-outlined text-sm">close</span></button>
+                </div>
+                
+                <!-- Input State -->
+                <div id="bubble-input-state" class="p-4 flex flex-col gap-4">
+                    <div>
+                        <label class="text-xs font-bold text-gray-700 mb-2 block">Apa yang ingin kamu pelajari?</label>
+                        <textarea id="ai-text-input" rows="2" class="w-full rounded-xl border border-gray-300 focus:ring-2 focus:ring-[#3b82f6] focus:border-[#3b82f6] text-sm p-3 outline-none resize-none" placeholder="Contoh: Rangkum modul tentang anemia..."></textarea>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="flex-1 h-px bg-gray-200"></div>
+                        <span class="text-[10px] text-gray-400 font-bold tracking-wider">ATAU</span>
+                        <div class="flex-1 h-px bg-gray-200"></div>
+                    </div>
+                    <div id="bubble-dropzone" class="border-2 border-dashed border-blue-300 hover:border-[#3b82f6] hover:bg-blue-50 rounded-xl p-4 text-center cursor-pointer transition-all">
+                        <span class="material-symbols-outlined text-[#3b82f6] text-2xl mb-1">cloud_upload</span>
+                        <p class="text-[11px] text-gray-600 font-medium">Tarik Foto/File atau Klik di sini</p>
+                        <input type="file" id="bubble-file-upload" class="hidden">
+                    </div>
+                    <button onclick="submitAIBubble()" class="w-full bg-[#3b82f6] text-white rounded-xl py-2 font-bold hover:bg-blue-600 transition-colors shadow-sm text-sm">Proses dengan AI</button>
+                </div>
+                
+                <!-- Processing State -->
+                <div id="bubble-processing-state" class="hidden p-8 flex-col items-center justify-center text-center">
+                    <span class="material-symbols-outlined animate-spin text-4xl text-[#3b82f6] mb-3">memory</span>
+                    <p class="text-sm font-bold text-gray-800">AI sedang memproses...</p>
+                    <p class="text-xs text-gray-500 mt-1">Membaca input Anda</p>
+                </div>
+                
+                <!-- Result State -->
+                <div id="bubble-result-state" class="hidden p-4 flex-col bg-slate-50">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                        <span class="font-bold text-sm text-gray-800">Hasil dari AI:</span>
+                    </div>
+                    <div class="max-h-[180px] overflow-y-auto text-xs text-gray-700 bg-white border border-gray-200 p-3 rounded-xl mb-3 shadow-inner leading-relaxed">
+                        <strong class="text-[#3b82f6]">Ringkasan Modul Pencegahan Anemia:</strong><br><br>
+                        1. <strong>Definisi:</strong> Anemia sering dialami remaja akibat kurangnya asupan gizi zat besi.<br>
+                        2. <strong>Faktor Risiko:</strong> Remaja putri berisiko lebih tinggi akibat menstruasi.<br>
+                        3. <strong>Pencegahan:</strong> Makan makanan bernutrisi tinggi zat besi dan konsumsi TTD (Tablet Tambah Darah) secara rutin.<br><br>
+                        <em>Semoga informasi ini membantumu!</em>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="resetAIBubble()" class="flex-1 border border-gray-300 bg-white text-gray-600 text-xs font-bold py-2 rounded-lg hover:bg-gray-100 transition-colors">Tanya Lagi</button>
+                        <button onclick="copyBubbleSummary()" class="flex-1 bg-[#3b82f6] text-white text-xs font-bold py-2 rounded-lg hover:bg-blue-600 transition-colors">Salin Teks</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bubble Button -->
+            <div id="ai-bubble" class="w-14 h-14 bg-[#3b82f6] rounded-full flex items-center justify-center text-white shadow-soft-float cursor-pointer hover:scale-105 transition-transform" style="box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
+                <span class="material-symbols-outlined text-[28px] pointer-events-none">auto_awesome</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Standard Summary Modal -->
+    <div id="standard-modal" class="fixed inset-0 bg-primary/80 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+        <div class="bg-surface w-full max-w-2xl rounded-3xl p-8 relative shadow-soft-float max-h-[90vh] flex flex-col">
+            <button onclick="document.getElementById('standard-modal').classList.add('hidden'); document.getElementById('standard-modal').classList.remove('flex');" class="absolute top-4 right-4 text-secondary hover:text-primary p-2 bg-surface-container rounded-full transition-colors"><span class="material-symbols-outlined">close</span></button>
+            <div class="flex items-center gap-3 mb-6 border-b border-outline-variant pb-4 flex-shrink-0">
+                <span class="material-symbols-outlined text-4xl text-primary">menu_book</span>
+                <h3 id="standard-modal-title" class="font-headline-md text-2xl text-primary font-bold">Ringkasan Modul</h3>
+            </div>
+            <div id="standard-modal-content" class="text-on-surface overflow-y-auto pr-2">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SP Routing Logic
+        function switchView(viewName) {
+            const views = ['home-view', 'modules-view', 'summary-view', 'play-view'];
+            
+            if (viewName === 'welcome-view') {
+                document.getElementById('welcome-view').classList.remove('hidden');
+                document.getElementById('app-layout').classList.add('hidden');
+                return;
+            }
+            
+            document.getElementById('welcome-view').classList.add('hidden');
+            document.getElementById('app-layout').classList.remove('hidden');
+            
+            views.forEach(v => {
+                const el = document.getElementById(v);
+                if (v === viewName) {
+                    el.classList.remove('hidden');
+                    el.classList.add('animate-fade-in'); 
+                } else {
+                    el.classList.add('hidden');
+                    el.classList.remove('animate-fade-in');
+                }
+            });
+
+            // Update Desktop Nav
+            document.querySelectorAll('.nav-item-desktop').forEach(item => {
+                const icon = item.querySelector('.material-symbols-outlined');
+                if (item.dataset.target === viewName) {
+                    item.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-soft-float');
+                    item.classList.remove('text-secondary', 'hover:bg-surface-container-high');
+                    if(icon) icon.style.fontVariationSettings = '"FILL" 1';
+                } else {
+                    item.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-soft-float');
+                    item.classList.add('text-secondary', 'hover:bg-surface-container-high');
+                    if(icon) icon.style.fontVariationSettings = '"FILL" 0';
+                }
+            });
+
+            // Update Mobile Nav
+            document.querySelectorAll('.nav-item-mobile').forEach(item => {
+                const icon = item.querySelector('.material-symbols-outlined');
+                if (item.dataset.target === viewName) {
+                    item.classList.add('text-primary', 'font-bold');
+                    item.classList.remove('text-secondary');
+                    if(icon) icon.style.fontVariationSettings = '"FILL" 1';
+                } else {
+                    item.classList.remove('text-primary', 'font-bold');
+                    item.classList.add('text-secondary');
+                    if(icon) icon.style.fontVariationSettings = '"FILL" 0';
+                }
+            });
+        }
+
+        // Shared Emoji particle generator logic
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                return;
+            }
+            const container = document.getElementById('emoji-container');
+            if (!container) return;
+            const emojis = ['📚', '🎓', '✏️', '💡', '🧪', '🎨', '⚡️', '✨'];
+            function createEmoji() {
+                const particle = document.createElement('div');
+                particle.className = 'emoji-rain';
+                particle.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                
+                const leftPos = Math.random() * 100; 
+                const duration = Math.random() * 15 + 15; 
+                const size = Math.random() * 1.5 + 1; 
+                
+                particle.style.left = `${leftPos}vw`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.fontSize = `${size}rem`;
+                
+                container.appendChild(particle);
+                setTimeout(() => { if (particle.parentNode) particle.remove(); }, duration * 1000);
+            }
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createEmoji, Math.random() * 3000);
+            }
+            setInterval(createEmoji, 1000);
+        });
+
+        // AI Widget Logic
+        function toggleAIPanel() {
+            const panel = document.getElementById('ai-panel');
+            panel.classList.toggle('hidden');
+            panel.classList.toggle('flex');
+        }
+
+        document.getElementById('ai-bubble').addEventListener('click', toggleAIPanel);
+
+        function submitAIBubble() {
+            document.getElementById('bubble-input-state').classList.add('hidden');
+            document.getElementById('bubble-processing-state').classList.remove('hidden');
+            document.getElementById('bubble-processing-state').classList.add('flex');
+            
+            setTimeout(() => {
+                document.getElementById('bubble-processing-state').classList.add('hidden');
+                document.getElementById('bubble-processing-state').classList.remove('flex');
+                
+                document.getElementById('bubble-result-state').classList.remove('hidden');
+                document.getElementById('bubble-result-state').classList.add('flex');
+            }, 1500);
+        }
+
+        function resetAIBubble() {
+            document.getElementById('bubble-result-state').classList.add('hidden');
+            document.getElementById('bubble-result-state').classList.remove('flex');
+            
+            document.getElementById('bubble-input-state').classList.remove('hidden');
+            document.getElementById('ai-text-input').value = '';
+        }
+
+        function copyBubbleSummary() {
+            alert("Teks berhasil disalin!");
+        }
+
+        // Summary Modal Logic
+        const summaries = {
+            'ini_genting': `
+                <div class="bg-red-50 p-6 rounded-2xl mb-6 border border-red-100">
+                    <h4 class="font-bold text-xl text-red-900 mb-2">Modul: INI GENTING</h4>
+                    <p class="text-red-800">Implementasi Nyata GenRe Cegah Stunting - Pembekalan Gizi & Kesehatan Fisik.</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg text-primary mb-4 border-b border-outline-variant pb-2">Materi Pembelajaran Lengkap:</h4>
+                    <ul class="space-y-6 text-secondary">
+                        <li class="flex gap-4">
+                            <div class="bg-red-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-red-600">monitor_weight</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Mengenal Apa Itu Stunting</strong>
+                                Stunting adalah kondisi gagal tumbuh pada anak balita akibat kekurangan gizi kronis, infeksi berulang, dan stimulasi psikososial yang tidak memadai, terutama pada 1.000 Hari Pertama Kehidupan (HPK). Anak stunting tidak hanya pendek secara fisik, tetapi kecerdasannya juga terhambat dan rentan penyakit.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-red-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-red-600">restaurant</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Pedoman Gizi Seimbang (Isi Piringku)</strong>
+                                Edukasi porsi makan ideal remaja. Berbeda dengan pedoman "4 Sehat 5 Sempurna" yang sudah lama, konsep "Isi Piringku" mengajarkan bahwa separuh piring harus berisi sayur dan buah, sedangkan separuh lainnya dibagi untuk karbohidrat dan protein. Remaja tidak boleh asal diet ketat yang merusak gizi.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-red-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-red-600">bloodtype</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Pencegahan Anemia pada Remaja Putri</strong>
+                                Anemia (kekurangan sel darah merah/hemoglobin) sangat berbahaya bagi remaja putri yang mengalami menstruasi rutin. Anemia menyebabkan 5L (Lemah, Letih, Lesu, Lelah, Lalai) dan jika remaja putri hamil dalam kondisi anemia, bayinya berisiko tinggi stunting. Solusinya: Mengonsumsi Tablet Tambah Darah (TTD) 1 butir setiap minggu.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-red-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-red-600">family_restroom</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Siklus Hidup & Memutus Mata Rantai</strong>
+                                Pencegahan stunting tidak dimulai saat bayi lahir, melainkan sejak masa remaja. Remaja yang menjaga kesehatannya hari ini akan menjadi ibu/ayah yang sehat di masa depan, menghasilkan sel sperma dan sel telur yang berkualitas, serta rahim yang siap untuk kehamilan yang sehat.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            `,
+            'tentang_kita': `
+                <div class="bg-blue-50 p-6 rounded-2xl mb-6 border border-blue-100">
+                    <h4 class="font-bold text-xl text-blue-900 mb-2">Modul: TENTANG KITA</h4>
+                    <p class="text-blue-800">Modul Edukasi PIK-R (Pusat Informasi dan Konseling Remaja) - Kesehatan Reproduksi & Perencanaan Keluarga.</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg text-primary mb-4 border-b border-outline-variant pb-2">Materi Pembelajaran Lengkap:</h4>
+                    <ul class="space-y-6 text-secondary">
+                        <li class="flex gap-4">
+                            <div class="bg-blue-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-blue-600">diversity_3</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Kesehatan Reproduksi Remaja</strong>
+                                Pemahaman tentang pubertas, organ reproduksi, dan bagaimana menjaga kebersihan serta kesehatannya.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-blue-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-blue-600">volunteer_activism</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Perencanaan Masa Depan</strong>
+                                Pentingnya merencanakan pendidikan, karir, dan pernikahan pada usia yang ideal demi keluarga yang sejahtera.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            `,
+            'life_skill': `
+                <div class="bg-green-50 p-6 rounded-2xl mb-6 border border-green-100">
+                    <h4 class="font-bold text-xl text-green-900 mb-2">Modul: LIFE SKILL</h4>
+                    <p class="text-green-800">Keterampilan praktis harian untuk mendukung kemandirianmu.</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg text-primary mb-4 border-b border-outline-variant pb-2">Materi Pembelajaran Lengkap:</h4>
+                    <ul class="space-y-6 text-secondary">
+                        <li class="flex gap-4">
+                            <div class="bg-green-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-green-600">psychology</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Manajemen Stres & Emosi</strong>
+                                Cara mengenali dan mengelola stres, menjaga kesehatan mental, dan teknik relaksasi untuk menghadapi tekanan belajar dan lingkungan.
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="bg-green-100 p-3 rounded-full h-fit"><span class="material-symbols-outlined text-green-600">lightbulb</span></div>
+                            <div>
+                                <strong class="text-on-surface text-lg block mb-1">Problem Solving</strong>
+                                Langkah-langkah praktis dalam menganalisis masalah, mencari solusi kreatif, dan mengambil keputusan yang bertanggung jawab.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            `
+        };
+
+        function startStandardSummary(moduleId) {
+            const modal = document.getElementById('standard-modal');
+            const content = document.getElementById('standard-modal-content');
+            
+            if (summaries[moduleId]) {
+                content.innerHTML = summaries[moduleId];
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+
+        // --- SOUND SYSTEM ---
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+        function playSound(type) {
+            if (!audioCtx) initAudio();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, now);
+                osc.frequency.exponentialRampToValueAtTime(300, now + 0.1);
+                gainNode.gain.setValueAtTime(0.2, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                osc.start(now);
+                osc.stop(now + 0.1);
+            } 
+            else if (type === 'correct') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(440, now);
+                osc.frequency.setValueAtTime(554.37, now + 0.1);
+                osc.frequency.setValueAtTime(659.25, now + 0.2);
+                osc.frequency.setValueAtTime(880, now + 0.3);
+                gainNode.gain.setValueAtTime(0.4, now);
+                gainNode.gain.linearRampToValueAtTime(0, now + 0.6);
+                osc.start(now);
+                osc.stop(now + 0.6);
+            }
+            else if (type === 'wrong') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(160, now);
+                osc.frequency.setValueAtTime(160, now + 0.15);
+                gainNode.gain.setValueAtTime(0.2, now);
+                gainNode.gain.setValueAtTime(0, now + 0.15);
+                
+                const osc2 = audioCtx.createOscillator();
+                const gain2 = audioCtx.createGain();
+                osc2.type = 'square';
+                osc2.connect(gain2);
+                gain2.connect(audioCtx.destination);
+                osc2.frequency.setValueAtTime(120, now + 0.2);
+                osc2.frequency.setValueAtTime(120, now + 0.45);
+                gain2.gain.setValueAtTime(0.2, now + 0.2);
+                gain2.gain.linearRampToValueAtTime(0, now + 0.45);
+                osc2.start(now + 0.2);
+                osc2.stop(now + 0.45);
+                
+                osc.start(now);
+                osc.stop(now + 0.15);
+            }
+        }
+        
+        document.addEventListener('click', (e) => {
+            initAudio();
+            const target = e.target.closest('button, a, label, .cursor-pointer, .edu-box, .quiz-opt');
+            if (target) {
+                if (!target.classList.contains('quiz-opt')) {
+                    playSound('click');
+                }
+            }
+        });
+
+        // --- GAME LOGIC ---
+        function enterGameMode() {
+            document.getElementById('hero-section').classList.add('hidden');
+            document.getElementById('game-section').classList.remove('hidden');
+            renderStartMenu();
+        }
+
+        const caseStudies = [
+            { id: 1, scenario: 'Apa fungsi utama mengonsumsi Tablet Tambah Darah (TTD) bagi remaja putri?', options: ['Mencegah anemia dan stunting di masa depan', 'Mempercepat pertumbuhan tinggi badan', 'Membuat kulit lebih putih', 'Menambah berat badan'], correctIndex: 0, insight: 'Mencegah anemia dan stunting di masa depan' },
+            { id: 2, scenario: 'Menurut pedoman "Isi Piringku", separuh (50%) piring makan kita sebaiknya diisi dengan...', options: ['Nasi dan daging berlemak', 'Makanan manis dan gorengan', 'Sayur-sayuran dan buah-buahan', 'Susu dan keju'], correctIndex: 2, insight: 'Sayur-sayuran dan buah-buahan' },
+            { id: 3, scenario: 'Segmen "BERANI" pada modul Tentang Kita ditujukan untuk remaja usia berapa?', options: ['15–19 Tahun', '20–24 Tahun', '25–30 Tahun', '10–14 Tahun'], correctIndex: 3, insight: '10–14 Tahun' },
+            { id: 4, scenario: 'Apa kepanjangan dari KTD yang sering dibahas dalam pencegahan perilaku berisiko remaja?', options: ['Kekerasan Tanpa Disadari', 'Kehamilan Tidak Diinginkan', 'Keputusan Tidak Dipertimbangkan', 'Kesehatan Tanpa Dokter'], correctIndex: 1, insight: 'Kehamilan Tidak Diinginkan' },
+            { id: 5, scenario: 'Usia minimal pernikahan yang dianjurkan oleh BKKBN untuk perempuan adalah...', options: ['19 Tahun', '20 Tahun', '21 Tahun', '25 Tahun'], correctIndex: 2, insight: '21 Tahun' },
+            { id: 6, scenario: 'Apa yang dimaksud dengan "Safe Touch" dalam perlindungan diri?', options: ['Sentuhan dari orang asing yang bersikap ramah', 'Sentuhan yang membuat tidak nyaman', 'Sentuhan wajar yang tidak melanggar batas privasi', 'Sentuhan paksaan dari teman dekat'], correctIndex: 2, insight: 'Sentuhan wajar yang tidak melanggar batas privasi' },
+            { id: 7, scenario: 'TRIAD KRR adalah tiga ancaman dasar bagi remaja. Di bawah ini yang BUKAN termasuk TRIAD KRR adalah...', options: ['Pernikahan Dini', 'Putus Sekolah', 'Seks Pranikah', 'Penyalahgunaan NAPZA'], correctIndex: 1, insight: 'Putus Sekolah' },
+            { id: 8, scenario: '1.000 Hari Pertama Kehidupan (HPK) sangat penting untuk mencegah stunting. Periode ini dihitung sejak...', options: ['Bayi lahir hingga usia 3 tahun', 'Anak masuk PAUD', 'Masa kehamilan hingga anak usia 2 tahun', 'Usia 1 tahun hingga 4 tahun'], correctIndex: 2, insight: 'Masa kehamilan hingga anak usia 2 tahun' },
+            { id: 9, scenario: 'Mengapa remaja putri sangat rentan mengalami anemia?', options: ['Karena massa ototnya lebih sedikit', 'Karena mengalami siklus menstruasi setiap bulan', 'Karena tidak suka makan daging', 'Karena sering begadang'], correctIndex: 1, insight: 'Karena mengalami siklus menstruasi setiap bulan' },
+            { id: 10, scenario: 'Kemampuan menyampaikan pendapat dengan tegas tanpa menyakiti perasaan orang lain disebut komunikasi...', options: ['Agresif', 'Pasif', 'Asertif', 'Manipulatif'], correctIndex: 2, insight: 'Asertif' },
+            { id: 11, scenario: 'PKBR adalah singkatan penting dalam modul "Berkolaborasi" (Usia 20-24). Kepanjangannya adalah...', options: ['Pusat Konseling Bersama Remaja', 'Perencanaan Karir dan Belajar Remaja', 'Pelatihan Keterampilan Baru Remaja', 'Penyiapan Kehidupan Berkeluarga bagi Remaja'], correctIndex: 3, insight: 'Penyiapan Kehidupan Berkeluarga bagi Remaja' },
+            { id: 12, scenario: 'Manakah di bawah ini yang merupakan salah satu dari 8 Fungsi Keluarga?', options: ['Fungsi Kepemimpinan', 'Fungsi Cinta Kasih', 'Fungsi Hiburan', 'Fungsi Kekuasaan'], correctIndex: 1, insight: 'Fungsi Cinta Kasih' },
+            { id: 13, scenario: 'Tanda utama anak mengalami stunting bukan hanya dari fisik yang pendek, tetapi juga...', options: ['Warna kulit yang lebih pucat', 'Suara yang lebih pelan', 'Terhambatnya perkembangan otak/kecerdasan', 'Rambut yang sulit tumbuh'], correctIndex: 2, insight: 'Terhambatnya perkembangan otak/kecerdasan' },
+            { id: 14, scenario: 'Ketika menghadapi paksaan atau "Peer Pressure" dari teman untuk melakukan hal berisiko, sikap terbaik adalah...', options: ['Mengikuti sesekali agar tidak dijauhi', 'Menolak dengan tegas dan menjauh', 'Memarahi teman tersebut dengan kasar', 'Diam saja dan menurut'], correctIndex: 1, insight: 'Menolak dengan tegas dan menjauh' },
+            { id: 15, scenario: '"Speak Up" dalam konsep pencegahan kekerasan seksual berarti...', options: ['Berbicara lantang setiap saat', 'Menceritakan rahasia orang lain', 'Berani melapor jika menjadi korban atau saksi', 'Berdebat dengan guru di sekolah'], correctIndex: 2, insight: 'Berani melapor jika menjadi korban atau saksi' }
+        ];
+
+        const state = {
+            correctAnswers: 0,
+            wrongAnswers: 0,
+            boxesStatus: [], 
+            boxStyles: [],
+            boxIcons: [],
+            activeCases: [],
+            quizTimeLeft: 15,
+            quizTimerInterval: null,
+            currentQuizBoxIndex: null,
+            lockedCountdowns: [],
+            lockedIntervals: []
+        };
+        
+        function shuffleArray(array) { return array.sort(() => Math.random() - 0.5); }
+        
+        function backToHero() {
+            document.getElementById('hero-section').classList.remove('hidden');
+            document.getElementById('game-section').classList.add('hidden');
+        }
+        
+        function renderStartMenu() {
+            document.getElementById('review-overlay').classList.add('hidden');
+            if(state.quizTimerInterval) clearInterval(state.quizTimerInterval);
+            if(state.lockedIntervals) state.lockedIntervals.forEach(inv => { if(inv) clearInterval(inv); });
+            
+            const domApp = document.getElementById('game-app');
+            domApp.innerHTML = `
+                <div class="animate-bounce-in mx-auto w-full text-center max-w-sm md:max-w-md bg-white p-8 border-4 border-slate-900 rounded-3xl shadow-[8px_8px_0px_#0f172a]">
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-2 title-twitch tracking-wide" style="text-shadow: 2px 2px 0px #fff, 4px 4px 0px #0f172a;">
+                        Edu<span class="text-cyan-500">Quiz</span>
+                    </h1>
+                    <p class="text-slate-600 font-bold mb-8">Uji pemahamanmu melalui Mystery Box!</p>
+                    <div class="flex flex-col gap-4">
+                        <button onclick="renderDifficultySelection()" class="btn-cartoon !bg-green-400 w-full py-4 text-2xl tracking-widest uppercase hover:-translate-y-2 hover:shadow-[6px_8px_0px_#0f172a] active:translate-y-2 active:shadow-[0px_0px_0px_#0f172a]">
+                            ▶ START
+                        </button>
+                        <button onclick="backToHero()" class="btn-cartoon !bg-slate-200 w-full py-3 text-lg text-slate-800">
+                            Kembali
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function renderDifficultySelection() {
+            const domApp = document.getElementById('game-app');
+            domApp.innerHTML = `
+                <div class="animate-bounce-in max-w-sm md:max-w-md mx-auto w-full card-cartoon p-5 md:p-6 text-left">
+                    <div class="flex items-center mb-6">
+                        <button onclick="renderStartMenu()" class="bg-slate-100 border-2 border-slate-900 p-1.5 rounded-lg shadow-[2px_2px_0px_#0f172a] mr-3 hover:-translate-y-1 transition-transform">
+                            <span class="material-symbols-outlined font-bold text-slate-900">arrow_back</span>
+                        </button>
+                        <h2 class="text-xl md:text-2xl font-black text-slate-900">Pilih Jumlah Modul</h2>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <button onclick="initGameMode(6)" class="btn-cartoon !bg-green-300 w-full py-4 text-lg">6 Kotak (Cepat)</button>
+                        <button onclick="initGameMode(10)" class="btn-cartoon !bg-yellow-300 w-full py-4 text-lg">10 Kotak (Sedang)</button>
+                        <button onclick="initGameMode(15)" class="btn-cartoon !bg-red-400 !text-white w-full py-4 text-lg">15 Kotak (Lama)</button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function initGameMode(boxCount) {
+            state.activeCases = shuffleArray([...caseStudies]).slice(0, boxCount);
+            state.boxesStatus = Array(boxCount).fill('closed');
+            state.lockedCountdowns = Array(boxCount).fill(0);
+            state.lockedIntervals = Array(boxCount).fill(null);
+            state.correctAnswers = 0;
+            state.wrongAnswers = 0;
+            
+            state.boxStyles = [];
+            state.boxIcons = [];
+            for (let i = 0; i < boxCount; i++) {
+                state.boxStyles.push(Math.random() > 0.5 ? 'box-black' : 'box-white');
+                state.boxIcons.push(Math.random() > 0.5 ? '?' : '!');
+            }
+            
+            renderDashboard();
+        }
+        
+        function renderDashboard() {
+            let boxesHTML = '';
+            for(let i=0; i<state.boxesStatus.length; i++) {
+                let status = state.boxesStatus[i];
+                let content = '';
+                let classes = `edu-box `;
+                let clickAction = '';
+                if(status === 'closed') {
+                    content = state.boxIcons[i];
+                    classes += state.boxStyles[i];
+                    clickAction = `onclick="openBox(${i})"`;
+                } else if (status === 'opened-correct') {
+                    content = '✔️';
+                    classes += 'opened box-correct';
+                } else if (status === 'opened-wrong') {
+                    content = '❌';
+                    classes += 'opened box-wrong';
+                } else if (status === 'locked') {
+                    content = `<span class="text-4xl mb-1">🔒</span><span class="text-xl">${state.lockedCountdowns[i]}s</span>`;
+                    classes += 'locked box-locked';
+                }
+                boxesHTML += `<div class="${classes}" ${clickAction}>${content}</div>`;
+            }
+            let scoreboardHTML = `
+                <div class="score-badge correct text-slate-900">
+                    <span class="text-sm font-black text-green-600 mb-1 flex items-center gap-1">✔️ Benar</span>
+                    <span class="text-4xl leading-none font-black text-green-500 drop-shadow-sm">${state.correctAnswers}</span>
+                </div>
+                <div class="score-badge wrong text-slate-900">
+                    <span class="text-sm font-black text-red-600 mb-1 flex items-center gap-1">❌ Salah</span>
+                    <span class="text-4xl leading-none font-black text-red-500 drop-shadow-sm">${state.wrongAnswers}</span>
+                </div>
+            `;
+            const domApp = document.getElementById('game-app');
+            domApp.innerHTML = `
+                <div class="animate-bounce-in mx-auto w-full max-w-2xl text-center z-10">
+                    <div class="scoreboard mb-8">${scoreboardHTML}</div>
+                    <div class="grid-boxes mb-10">${boxesHTML}</div>
+                    <button onclick="renderStartMenu()" class="btn-cartoon !bg-slate-100 text-slate-900 px-6 py-2 mx-auto flex items-center justify-center gap-2 text-sm hover:!bg-slate-200">
+                        <span class="material-symbols-outlined">exit_to_app</span> Menu Utama
+                    </button>
+                </div>
+            `;
+        }
+        
+        function openBox(index) {
+            if(state.boxesStatus[index] !== 'closed') return;
+            
+            state.currentQuizBoxIndex = index;
+            const q = state.activeCases[index];
+            showQuiz(q, index);
+        }
+        
+        function showQuiz(q, boxIndex) {
+            let optsHTML = '';
+            q.options.forEach((opt, i) => {
+                optsHTML += `<button class="quiz-opt" onclick="answerQuiz(${boxIndex}, ${i === q.correctIndex})">${opt}</button>`;
+            });
+            document.getElementById('safe-quiz-overlay').classList.remove('hidden');
+            document.getElementById('safe-quiz-overlay').classList.add('flex');
+            document.getElementById('safe-quiz-question').innerText = q.scenario;
+            document.getElementById('safe-quiz-options').innerHTML = optsHTML;
+            state.quizTimeLeft = 15;
+            updateQuizTimerUI();
+            document.getElementById('panic-screen').classList.remove('panic-active');
+            if(state.quizTimerInterval) clearInterval(state.quizTimerInterval);
+            
+            state.quizTimerInterval = setInterval(() => {
+                state.quizTimeLeft--;
+                updateQuizTimerUI();
+                if (state.quizTimeLeft <= 5 && state.quizTimeLeft > 0) {
+                    document.getElementById('panic-screen').classList.add('panic-active');
+                }
+                if (state.quizTimeLeft <= 0) {
+                    clearInterval(state.quizTimerInterval);
+                    handleQuizTimeout(boxIndex);
+                }
+            }, 1000);
+        }
+        
+        function updateQuizTimerUI() {
+            const bar = document.getElementById('quiz-timer-bar');
+            const text = document.getElementById('quiz-timer-text');
+            
+            const percentage = (state.quizTimeLeft / 15) * 100;
+            bar.style.width = `${percentage}%`;
+            text.innerText = `${state.quizTimeLeft}s`;
+            if (state.quizTimeLeft > 7) {
+                bar.className = 'timer-bar';
+                text.style.color = '#1e293b';
+            } else if (state.quizTimeLeft > 3) {
+                bar.className = 'timer-bar warning';
+                text.style.color = '#eab308';
+            } else {
+                bar.className = 'timer-bar danger';
+                text.style.color = '#ef4444';
+            }
+        }
+        
+        function handleQuizTimeout(boxIndex) {
+            document.getElementById('safe-quiz-overlay').classList.add('hidden');
+            document.getElementById('safe-quiz-overlay').classList.remove('flex');
+            document.getElementById('panic-screen').classList.remove('panic-active');
+            showStatusPopup('⏰', 'WAKTU HABIS!', '#f59e0b', () => {
+                state.boxesStatus[boxIndex] = 'locked';
+                state.lockedCountdowns[boxIndex] = 15;
+                
+                state.lockedIntervals[boxIndex] = setInterval(() => {
+                    state.lockedCountdowns[boxIndex]--;
+                    renderDashboard(); 
+                    
+                    if (state.lockedCountdowns[boxIndex] <= 0) {
+                        clearInterval(state.lockedIntervals[boxIndex]);
+                        state.boxesStatus[boxIndex] = 'closed';
+                        renderDashboard();
+                    }
+                }, 1000);
+                renderDashboard();
+            });
+        }
+        
+        function answerQuiz(boxIndex, isCorrect) {
+            clearInterval(state.quizTimerInterval);
+            document.getElementById('safe-quiz-overlay').classList.add('hidden');
+            document.getElementById('safe-quiz-overlay').classList.remove('flex');
+            document.getElementById('panic-screen').classList.remove('panic-active');
+            
+            if (isCorrect) {
+                playSound('correct');
+                state.correctAnswers += 1;
+                state.boxesStatus[boxIndex] = 'opened-correct';
+                showStatusPopup('✔️', 'BENAR!', '#22c55e', checkGameCompletion);
+            } else {
+                playSound('wrong');
+                state.wrongAnswers += 1;
+                state.boxesStatus[boxIndex] = 'opened-wrong';
+                showStatusPopup('❌', 'SALAH!', '#ef4444', checkGameCompletion);
+            }
+        }
+        
+        function showStatusPopup(icon, title, color, callback) {
+            const overlay = document.getElementById('status-popup-overlay');
+            const card = document.getElementById('status-popup-card');
+            
+            document.getElementById('status-popup-icon').innerText = icon;
+            document.getElementById('status-popup-title').innerText = title;
+            document.getElementById('status-popup-title').style.color = color;
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            
+            setTimeout(() => {
+                card.classList.remove('scale-0');
+                card.classList.add('scale-100');
+            }, 10);
+            setTimeout(() => {
+                card.classList.remove('scale-100');
+                card.classList.add('scale-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    overlay.classList.remove('flex');
+                    if(callback) callback();
+                }, 300);
+            }, 1500);
+        }
+        
+        function checkGameCompletion() {
+            renderDashboard();
+            
+            const isCompleted = state.boxesStatus.every(s => s === 'opened-correct' || s === 'opened-wrong');
+            if (isCompleted) {
+                setTimeout(showReviewOverlay, 500);
+            }
+        }
+        
+        function showReviewOverlay() {
+            const total = state.correctAnswers + state.wrongAnswers;
+            const percentage = total > 0 ? Math.round((state.correctAnswers / total) * 100) : 0;
+            
+            let predicate = "";
+            let color = "";
+            if (percentage >= 80) { predicate = "Sangat Paham! Luar biasa! 🌟"; color = "text-green-500"; }
+            else if (percentage >= 50) { predicate = "Cukup Paham! Terus pelajari ya! 👍"; color = "text-yellow-500"; }
+            else { predicate = "Masih Kurang! Yuk ulangi lagi! 💪"; color = "text-red-500"; }
+            document.getElementById('review-percentage').innerText = `${percentage}%`;
+            document.getElementById('review-predicate').innerText = predicate;
+            document.getElementById('review-percentage').className = `text-5xl font-black ${color}`;
+            document.getElementById('review-predicate').className = `text-lg font-bold mt-2 ${color}`;
+            
+            let listHTML = '';
+            state.activeCases.forEach((q, index) => {
+                const status = state.boxesStatus[index];
+                const isCorrect = status === 'opened-correct';
+                const icon = isCorrect ? '✔️' : '❌';
+                const bg = isCorrect ? 'bg-green-100 border-green-300' : 'bg-red-100 border-red-300';
+                
+                listHTML += `
+                    <div class="flex items-start gap-3 p-3 rounded-xl border-2 ${bg}">
+                        <div class="text-xl mt-1">${icon}</div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm mb-1">${q.scenario}</p>
+                            <p class="text-xs text-slate-600">Jawaban: <span class="font-bold">${q.insight}</span></p>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('review-list').innerHTML = listHTML;
+            
+            document.getElementById('review-overlay').classList.remove('hidden');
+            document.getElementById('review-overlay').classList.add('flex');
+        }
+    </script>
+</body>
+</html>
